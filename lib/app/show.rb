@@ -5,6 +5,7 @@ class Show
 
     def show_board(boardcases_array)
         #TO DO : affiche sur le terminal l'objet de classe Board en entrée. S'active avec un Show.new.show_board(instance_de_Board)
+        system 'clear'
         puts
         print " "*10
         print "       █       █       \n".bg_black

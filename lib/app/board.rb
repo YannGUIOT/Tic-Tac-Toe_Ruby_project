@@ -1,20 +1,21 @@
 
 class Board
     attr_accessor :boardcases_array
-    attr_reader :winner
-    @@boardcases_array = []
 
     def initialize
+        @boardcases_array = []
       for i in 1..9
-        @@boardcases_array[i] = " "
+        @boardcases_array[i] = "."
       end
     end
-  
+    
+    def board_display
+        Show.new.show_board(@boardcases_array)
+    end
+
     def play_turn(current_player_name, current_player_value)
-        system 'clear'
         print " "*8
         print "  Hey #{current_player_name} c'est à ton tour ! \n".bg_black.green
-        Show.new.show_board(@@boardcases_array)
         played_case = self.player_choice
         self.test_and_play_case(played_case, current_player_value)
     end
@@ -37,10 +38,9 @@ class Board
 
     def test_and_play_case(played_case, current_player_value)
         test = 0
-        print " played case : #{played_case} \n bordcases_array[] : #{@@bordcases_array}\n"
         while test == 0
-            if @@boardcases_array[played_case] == " "
-                @@boardcases_array[played_case] = current_player_value
+            if @boardcases_array[played_case].include? "."
+                @boardcases_array[played_case] = current_player_value
                 test = 1
                 break
             else
@@ -63,18 +63,11 @@ class Board
     end
 
     def test_ligne(a,b,c)
-        temp_str = @@boardcases_array[a] + @@boardcases_array[b] + @@boardcases_array[c]
+        temp_str = @boardcases_array[a] + @boardcases_array[b] + @boardcases_array[c]
         if temp_str == "XXX" || temp_str == "OOO"
-            @winner_value = "X" if temp_str == "XXX"
-            @winner_value = "O" if temp_str == "OOO"
-            system 'clear'
-            puts "\n"
-            Show.new.show_board(@@boardcases_array)
             return true
         else
             return false
         end
     end
-
-
 end
