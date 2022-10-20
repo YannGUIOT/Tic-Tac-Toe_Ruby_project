@@ -69,8 +69,7 @@ class Board
         there_is_winner = self.test_ligne(3,6,9) if there_is_winner == false
         there_is_winner = self.test_ligne(1,5,9) if there_is_winner == false
         there_is_winner = self.test_ligne(3,5,7) if there_is_winner == false
-        return true if there_is_winner == true
-        return false if there_is_winner == false
+        return there_is_winner
     end
 
     def test_ligne(a,b,c)
