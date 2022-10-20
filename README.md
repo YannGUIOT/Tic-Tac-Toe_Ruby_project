@@ -9,11 +9,12 @@
 
 - 🌱 I’m currently learning **ruby 🛑**
 
-- 💬 Ask me about **anything ! 🤷‍♂️**
+- 💬 Today i have coding this Tic-Tac-Toe game in **ruby 🛑** 🤷‍♂️
+- To play my game, type in your terminal `$ bundle install` and `$ ruby app.rb` 
 
 - 📫 How to reach me -> **guiot_yann@hotmail.fr**
 
-- ⚡ Fun [My Tic-Tac-Toe Game](https://yannguiot.github.io/) 🚧
+- ⚡ You can play to my Funny [My Tic-Tac-Toe Game](https://yannguiot.github.io/) coded in Javascript 🚧
 </p>
 
 <h3 align="center">Connect with me:</h3>
