@@ -1,13 +1,14 @@
 
-class Game
+class Game2Players
     attr_accessor :current_player, :party
 
     def initialize
         @playerX = Player.new(request_name(1),"X")
         @playerO = Player.new(request_name(2),"O")
-        case rand(0..1)
-            when 0 then @current_player = @playerX
-            when 1 then @current_player = @playerO
+        if rand(0..1) == 0 
+            @current_player = @playerX
+        else
+            @current_player = @playerO
         end
         @party = Board.new
         @party.board_display
