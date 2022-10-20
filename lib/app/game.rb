@@ -42,11 +42,23 @@ class Game
 
     def game_end
         if @party.test_victory == true
-            print "  CONGRATULATIONS #{@current_player.name} !! YOU WON THE PARTY \n\n".bg_black.yellow
+            @playerX.wins += 1 if @current_player.value == "X"
+            @playerO.wins += 1 if @current_player.value == "O"
+            self.display_win
         else
-            print "  OHH SHIT !! THERE IS NO WINNER ... \n\n".bg_black.red
+            print "\n ... THERE IS NO WINNER ...  \n".bg_black.red.bold
         end
         self.new_round
+    end
+
+    def display_win
+        print "\n       CONGRATULATIONS       \n".bg_black.bold.yellow
+        str = ((29-@current_player.name.length)/2).to_i
+        print " ".bg_black*str
+        print @current_player.name.bg_black.bold.yellow
+        print " ".bg_black*(str+1) if @current_player.name.length.even?
+        print " ".bg_black*str if @current_player.name.length.odd?
+        puts
     end
 
     def party_choice
@@ -59,6 +71,7 @@ class Game
     end
 
     def new_round
+        self.display_stats
         self.ask_new_round
         if self.party_choice == 1
             @party = Board.new
@@ -68,14 +81,37 @@ class Game
     end
 
     def ask_new_round
-        print " ".bg_black.bold*40
-        print "\n        DO YOU WANT A NEW PARTY ?       \n".bg_black.bold.yellow
-        print " ".bg_black.bold*40
+        print " ".bg_black.bold*29
+        print "\n  DO YOU WANT A NEW PARTY ?  \n".bg_black.bold.yellow
+        print " ".bg_black.bold*29
         print "\n  [1] ".bg_black.red
-        print " YES                              ".bg_black.bold 
+        print " YES                   ".bg_black.bold.yellow 
         print "\n  [2] ".bg_black.red
-        print " NO                               \n".bg_black.bold
-        print " ".bg_black.bold*40
+        print " NO                    \n".bg_black.bold.yellow
+        print " ".bg_black.bold*29
+    end
+
+    def display_stats
+        print " ".bg_black*29
+        print "\n"
+        str = ((11-@playerX.name.length)/2).to_i
+        print " ".bg_black*str
+        print "#{@playerX.name}".bg_black.bold
+        print " ".bg_black*(str+1) if @playerX.name.length.even?
+        print " ".bg_black*str if @playerX.name.length.odd?
+        print "| TOTAL WINS : #{@playerX.wins}".bg_black.bold
+        print " ".bg_black if @playerX.wins > 9
+        print "  ".bg_black if @playerX.wins < 10
+        puts
+        str = ((11-@playerO.name.length)/2).to_i
+        print " ".bg_black*str
+        print "#{@playerO.name}".bg_black.bold
+        print " ".bg_black*(str+1) if @playerO.name.length.even?
+        print " ".bg_black*str if @playerO.name.length.odd?
+        print "| TOTAL WINS : #{@playerO.wins}".bg_black.bold
+        print " ".bg_black if @playerO.wins > 9
+        print "  ".bg_black if @playerO.wins < 10
+        puts
     end
 
 end

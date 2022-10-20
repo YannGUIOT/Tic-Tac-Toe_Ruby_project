@@ -1,11 +1,5 @@
-# cette classe va nous permettre de lancer le jeu. 
-# Elle va faire une boucle infinie de parties 
-# (on joue tant que les joueurs veulent continuer) et lancer l'instanciation d'un Game.
-
 class Application
     def perform
-      # TO DO : méthode qui initialise le jeu puis contient des boucles while 
-      # pour faire tourner le jeu tant que la partie n'est pas terminée.
       choice = self.menu
       case choice
       when 1
@@ -19,14 +13,14 @@ class Application
 
     def menu
         system 'clear'
-        print " ".bg_black.bold*40
-        print "\n       WELCOME TO TIC-TAC-TOE GAME      \n".bg_black.bold.yellow
-        print " ".bg_black.bold*40
+        print " ".bg_black.bold*29
+        print "\n WELCOME TO TIC-TAC-TOE GAME \n".bg_black.bold.yellow
+        print " ".bg_black.bold*29
         print "\n  [1] ".bg_black.red
-        print " NOUVELLE PARTIE                  ".bg_black.bold 
+        print " NOUVELLE PARTIE       ".bg_black.bold 
         print "\n  [2] ".bg_black.red
-        print " EXIT                             \n".bg_black.bold
-        print " ".bg_black.bold*40
+        print " EXIT                  \n".bg_black.bold
+        print " ".bg_black.bold*29
         self.user_choice
     end
 

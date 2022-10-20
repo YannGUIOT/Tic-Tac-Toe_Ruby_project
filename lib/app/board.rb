@@ -5,7 +5,7 @@ class Board
     def initialize
         @boardcases_array = []
       for i in 1..9
-        @boardcases_array[i] = "."
+        @boardcases_array[i] = " "
       end
     end
     
@@ -14,10 +14,21 @@ class Board
     end
 
     def play_turn(current_player_name, current_player_value)
-        print " "*8
-        print "  Hey #{current_player_name} c'est à ton tour ! \n".bg_black.green
+        self.display_player_turn(current_player_name)
         played_case = self.player_choice
         self.test_and_play_case(played_case, current_player_value)
+    end
+
+    def display_player_turn(current_player_name)
+        str = ((29-current_player_name.length)/2).to_i
+        puts
+        print " ".bg_black*str
+        print current_player_name.bg_black.bold.yellow
+        print " ".bg_black*(str+1) if current_player_name.length.even?
+        print " ".bg_black*str if current_player_name.length.odd?
+        print "\n       IT'S YOUR TURN !      \n".bg_black
+        print " ".bg_black*29
+        puts
     end
 
     def player_choice
@@ -39,7 +50,7 @@ class Board
     def test_and_play_case(played_case, current_player_value)
         test = 0
         while test == 0
-            if @boardcases_array[played_case].include? "."
+            if @boardcases_array[played_case].include? " "
                 @boardcases_array[played_case] = current_player_value
                 test = 1
                 break
@@ -57,7 +68,7 @@ class Board
         there_is_winner = self.test_ligne(2,5,8) if there_is_winner == false
         there_is_winner = self.test_ligne(3,6,9) if there_is_winner == false
         there_is_winner = self.test_ligne(1,5,9) if there_is_winner == false
-        there_is_winner = self.test_ligne(3,5,9) if there_is_winner == false
+        there_is_winner = self.test_ligne(3,5,7) if there_is_winner == false
         return true if there_is_winner == true
         return false if there_is_winner == false
     end

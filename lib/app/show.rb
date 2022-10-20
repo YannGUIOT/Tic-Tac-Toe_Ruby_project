@@ -1,147 +1,64 @@
-# cette classe sera une sorte de view. 
-# Elle affichera l'état du plateau de jeu à un instant T.
 
 class Show
+    @temp_array = []
 
     def show_board(boardcases_array)
-        #TO DO : affiche sur le terminal l'objet de classe Board en entrée. S'active avec un Show.new.show_board(instance_de_Board)
+        @temp_array = boardcases_array
         system 'clear'
-        puts
-        print " "*10
-        print "       █       █       \n".bg_black
-        print " "*10
-        print "   ".bg_black
-        print "#{boardcases_array[7]}".bg_black.red if boardcases_array[7] == "X"
-        print "#{boardcases_array[7]}".bg_black.yellow if boardcases_array[7] != "X"
+        print " ".bg_black.bold*29
+        print "\n WELCOME TO TIC-TAC-TOE GAME \n".bg_black.bold.yellow
+        print " ".bg_black.bold*29
+        print "\n          █       █          \n".bg_black
+        print " ".bg_black*6
+        self.display_case(7)
         print "   █   ".bg_black
-        print "#{boardcases_array[8]}".bg_black.red if boardcases_array[8] == "X"
-        print "#{boardcases_array[8]}".bg_black.yellow if boardcases_array[8] != "X"
+        self.display_case(8)
         print "   █   ".bg_black
-        print "#{boardcases_array[9]}".bg_black.red if boardcases_array[9] == "X"
-        print "#{boardcases_array[9]}".bg_black.yellow if boardcases_array[9] != "X"
-        print "   \n".bg_black
-        print " "*10
-        print "       █       █       \n".bg_black
-        print " "*10
-        print ""
+        self.display_case(9)
+        print "      \n".bg_black
+        print "          █       █          \n".bg_black
+        print " ".bg_black*3
         print "▄".bg_black*7
         print "█"    
         print "▄".bg_black*7    
         print "█"    
         print "▄".bg_black*7    
-        print "\n"   
-        print " "*10
-        print "       █       █       \n".bg_black
-        print " "*10
-        print "   ".bg_black
-        print "#{boardcases_array[4]}".bg_black.red if boardcases_array[4] == "X"
-        print "#{boardcases_array[4]}".bg_black.yellow if boardcases_array[4] != "X"
+        print "   \n".bg_black   
+        print "          █       █          \n".bg_black
+        print " ".bg_black*6
+        self.display_case(4)
         print "   █   ".bg_black
-        print "#{boardcases_array[5]}".bg_black.red if boardcases_array[5] == "X"
-        print "#{boardcases_array[5]}".bg_black.yellow if boardcases_array[5] != "X"
+        self.display_case(5)
         print "   █   ".bg_black
-        print "#{boardcases_array[6]}".bg_black.red if boardcases_array[6] == "X"
-        print "#{boardcases_array[6]}".bg_black.yellow if boardcases_array[6] != "X"
-        print "   \n".bg_black
-        print " "*10
-        print "       █       █       \n".bg_black
-        print " "*10
+        self.display_case(6)
+        print "      \n".bg_black
+        print "          █       █          \n".bg_black
+        print " ".bg_black*3
         print "▄".bg_black*7
         print "█"    
         print "▄".bg_black*7    
         print "█"    
         print "▄".bg_black*7    
-        print "\n"   
-        print " "*10
-        print "       █       █       \n".bg_black
-        print " "*10
-        print "   ".bg_black
-        print "#{boardcases_array[1]}".bg_black.red if boardcases_array[1] == "X"
-        print "#{boardcases_array[1]}".bg_black.yellow if boardcases_array[1] != "X"
+        print "   \n".bg_black  
+        print "          █       █          \n".bg_black
+        print " ".bg_black*6
+        self.display_case(1)
         print "   █   ".bg_black
-        print "#{boardcases_array[2]}".bg_black.red if boardcases_array[2] == "X"
-        print "#{boardcases_array[2]}".bg_black.yellow if boardcases_array[2] != "X"
+        self.display_case(2)
         print "   █   ".bg_black
-        print "#{boardcases_array[3]}".bg_black.red if boardcases_array[3] == "X"
-        print "#{boardcases_array[3]}".bg_black.yellow if boardcases_array[3] != "X"
-        print "   \n".bg_black
-        print " "*10
-        print "       █       █       \n\n".bg_black
- 
-        # puts
-        # print " "*10
-        # print "▄"*25
-        # puts
-        # print " "*10
-        # print "█       █       █       █\n".bg_black
-        # print " "*10
-        # print "█   ".bg_black
-        # print "#{boardcases_array[7].value}".bg_black.red if boardcases_array[7] == "X"
-        # print "#{boardcases_array[7].value}".bg_black.yellow if boardcases_array[7] != "X"
-        # print "   █   ".bg_black
-        # print "#{boardcases_array[8].value}".bg_black.red if boardcases_array[8] == "X"
-        # print "#{boardcases_array[8].value}".bg_black.yellow if boardcases_array[8] != "X"
-        # print "   █   ".bg_black
-        # print "#{boardcases_array[9].value}".bg_black.red if boardcases_array[9] == "X"
-        # print "#{boardcases_array[9].value}".bg_black.yellow if boardcases_array[9] != "X"
-        # print "   █\n".bg_black
-        # print " "*10
-        # print "█       █       █       █\n".bg_black
-        # print " "*10
-        # print "█"
-        # print "▄".bg_black*7
-        # print "█"    
-        # print "▄".bg_black*7    
-        # print "█"    
-        # print "▄".bg_black*7    
-        # print "█\n"   
-        # print " "*10
-        # print "█       █       █       █\n".bg_black
-        # print " "*10
-        # print "█   ".bg_black
-        # print "#{boardcases_array[4].value}".bg_black.red if boardcases_array[4] == "X"
-        # print "#{boardcases_array[4].value}".bg_black.yellow if boardcases_array[4] != "X"
-        # print "   █   ".bg_black
-        # print "#{boardcases_array[5].value}".bg_black.red if boardcases_array[5] == "X"
-        # print "#{boardcases_array[5].value}".bg_black.yellow if boardcases_array[5] != "X"
-        # print "   █   ".bg_black
-        # print "#{boardcases_array[6].value}".bg_black.red if boardcases_array[6] == "X"
-        # print "#{boardcases_array[6].value}".bg_black.yellow if boardcases_array[6] != "X"
-        # print "   █\n".bg_black
-        # print " "*10
-        # print "█       █       █       █\n".bg_black
-        # print " "*10
-        # print "█"
-        # print "▄".bg_black*7
-        # print "█"    
-        # print "▄".bg_black*7    
-        # print "█"    
-        # print "▄".bg_black*7    
-        # print "█\n"   
-        # print " "*10
-        # print "█       █       █       █\n".bg_black
-        # print " "*10
-        # print "█   ".bg_black
-        # print "#{boardcases_array[1].value}".bg_black.red if boardcases_array[1] == "X"
-        # print "#{boardcases_array[1].value}".bg_black.yellow if boardcases_array[1] != "X"
-        # print "   █   ".bg_black
-        # print "#{boardcases_array[2].value}".bg_black.red if boardcases_array[2] == "X"
-        # print "#{boardcases_array[2].value}".bg_black.yellow if boardcases_array[2] != "X"
-        # print "   █   ".bg_black
-        # print "#{boardcases_array[3].value}".bg_black.red if boardcases_array[3] == "X"
-        # print "#{boardcases_array[3].value}".bg_black.yellow if boardcases_array[3] != "X"
-        # print "   █\n".bg_black
-        # print " "*10
-        # print "█       █       █       █\n".bg_black
-        # print " "*10
-        # print "█"
-        # print "▄".bg_black*7
-        # print "█"    
-        # print "▄".bg_black*7    
-        # print "█"    
-        # print "▄".bg_black*7    
-        # print "█\n"   
-        # puts "\n"
-      end
+        self.display_case(3)
+        print "      \n".bg_black
+        print "          █       █          \n".bg_black
+        print " ".bg_black*29
+
+    end
+
+    def display_case(num)
+        case @temp_array[num]
+        when "X" then print "#{@temp_array[num]}".bg_black.red.bold
+        when "O" then print "#{@temp_array[num]}".bg_black.green.bold
+        when " " then print "#{@temp_array[num]}".bg_black
+        end
+    end
   
 end
